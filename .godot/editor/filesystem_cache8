@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1698877688
+dsi-menu.png::CompressedTexture2D::8893963204807139519::1698698332::1698698332::1::::<><>::
+icon.svg::CompressedTexture2D::2139515307610488665::1698618993::1698619000::1::::<><>::
+Untitled-1.png::CompressedTexture2D::3005806874140910520::1698702421::1698702421::1::::<><>::
+::res://globals/::1698780248
+Finances.gd::GDScript::-1::1698780248::0::1::::<>Node<>::
+::res://scenes/::1698879009
+blur.gdshader::Shader::-1::1698879159::0::1::::<><>::
+finances.tscn::PackedScene::2887848038961326181::1698879009::0::1::::<><>::res://scenes/scene-finances.gd<>uid://bi3bg2jjxip01::::res://Untitled-1.png<>res://scenes/RepeatedScrollingBackground.gd<>uid://oce7g7aqgjat::::res://scenes/finances/bill_label.tscn
+main.tscn::PackedScene::4875812987562256217::1698879009::0::1::::<><>::uid://5qnrfiauhweb::::res://icon.svg<>uid://dyykjlni6pgpb::::res://dsi-menu.png<>res://scenes/SceneChangeButton.gd<>uid://bhe5o2gk012vp::::res://scenes/finances.tscn
+RepeatedScrollingBackground.gd::GDScript::-1::1698703961::0::1::::<>TextureRect<>::
+scene-finances.gd::GDScript::-1::1698781151::0::1::::<>Control<>::
+SceneChangeButton.gd::GDScript::-1::1698698562::0::1::::<>Button<>::
+::res://scenes/finances/::1698879009
+bill_label.gd::GDScript::-1::1698879003::0::1::::<>Node<>::
+bill_label.tscn::PackedScene::987072944412065255::1698879159::0::1::::<><>::res://scenes/finances/bill_label.gd

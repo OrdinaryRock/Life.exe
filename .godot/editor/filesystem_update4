@@ -1,0 +1,8 @@
+res://scenes/main.tscn
+res://scenes/blur.gdshader
+res://scenes/finances.tscn
+res://scenes/finances/bill_label.tscn
+res://scenes/finances/bill_label.gd
+res://scenes/finances/label_writer.gd
+res://scenes/scene-finances.gd
+res://scenes/finances/random_label.tscn

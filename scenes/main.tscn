@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbp46sibbis2l"]
+
+[ext_resource type="Texture2D" uid="uid://5qnrfiauhweb" path="res://icon.svg" id="1_kf72j"]
+[ext_resource type="Texture2D" uid="uid://dyykjlni6pgpb" path="res://dsi-menu.png" id="1_xrfou"]
+[ext_resource type="Script" path="res://scenes/SceneChangeButton.gd" id="3_rntgi"]
+[ext_resource type="PackedScene" uid="uid://bhe5o2gk012vp" path="res://scenes/finances.tscn" id="4_500g6"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0rppk"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_g0ay2"]
+events = [SubResource("InputEventKey_0rppk")]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xrfou")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 300
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="FinanceButtonContainer" type="MarginContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FinanceButton" type="Button" parent="MarginContainer/GridContainer/FinanceButtonContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_g0ay2")
+icon = ExtResource("1_kf72j")
+flat = true
+icon_alignment = 1
+script = ExtResource("3_rntgi")
+nextScene = ExtResource("4_500g6")
+
+[connection signal="pressed" from="MarginContainer/GridContainer/FinanceButtonContainer/FinanceButton" to="MarginContainer/GridContainer/FinanceButtonContainer/FinanceButton" method="_on_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://oce7g7aqgjat"]
+
+[ext_resource type="Script" path="res://scenes/finances/label_writer.gd" id="1_sf4wl"]
+
+[node name="BillLabel" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_sf4wl")
+
+[node name="BillName" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.443137)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 22
+text = "Gas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BillAmount" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.443137)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 22
+text = "$50"
+horizontal_alignment = 1
+vertical_alignment = 1

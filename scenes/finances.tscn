@@ -1,0 +1,426 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhe5o2gk012vp"]
+
+[ext_resource type="Script" path="res://scenes/scene-finances.gd" id="1_04tsp"]
+[ext_resource type="Texture2D" uid="uid://bi3bg2jjxip01" path="res://Untitled-1.png" id="1_o1xxg"]
+[ext_resource type="Script" path="res://scenes/RepeatedScrollingBackground.gd" id="2_srv7a"]
+[ext_resource type="PackedScene" uid="uid://oce7g7aqgjat" path="res://scenes/finances/bill_label.tscn" id="4_hulxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76bpx"]
+bg_color = Color(0, 0, 0, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m863c"]
+bg_color = Color(0.2, 0.870588, 0.501961, 1)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj846"]
+bg_color = Color(0.831373, 0.254902, 0.254902, 1)
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[node name="Finances" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_04tsp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4723.0
+offset_top = 862.0
+offset_right = 9648.0
+offset_bottom = 6136.0
+grow_horizontal = 0
+rotation = 2.52384
+texture = ExtResource("1_o1xxg")
+stretch_mode = 1
+script = ExtResource("2_srv7a")
+scroll_speed = 0.5
+tile_size = 160
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_76bpx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.443137)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 110
+text = "$160"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vbox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BillsPanel" type="Panel" parent="MarginContainer/HBoxContainer/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/vbox/BillsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "Add Bill"
+horizontal_alignment = 1
+
+[node name="EnterBill" type="Button" parent="MarginContainer/HBoxContainer/vbox/BillsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.393564
+anchor_top = 0.784452
+anchor_right = 0.606436
+anchor_bottom = 0.961131
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Enter"
+metadata/_edit_use_anchors_ = true
+
+[node name="BillName" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/BillsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.183168
+anchor_top = 0.286219
+anchor_right = 0.816832
+anchor_bottom = 0.473498
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Name"
+alignment = 1
+expand_to_text_length = true
+context_menu_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="BillAmount" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/BillsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.334158
+anchor_top = 0.515901
+anchor_right = 0.665842
+anchor_bottom = 0.70318
+offset_left = 3.0
+offset_top = -1.52588e-05
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Amount"
+alignment = 1
+expand_to_text_length = true
+context_menu_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="IncomePanel" type="Panel" parent="MarginContainer/HBoxContainer/vbox"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseMenu" type="Control" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "Income"
+horizontal_alignment = 1
+
+[node name="AddCheck" type="Button" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -34.5
+offset_right = 127.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_m863c")
+text = "Add Check"
+
+[node name="SecondaryOptions" type="HBoxContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.5
+offset_top = -69.0
+offset_right = 127.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="Statistics" type="Button" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu/SecondaryOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nj846")
+text = "Statistics"
+
+[node name="Change" type="Button" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu/SecondaryOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nj846")
+text = "Change"
+
+[node name="CheckMenu" type="Control" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 44
+text = "Add Check"
+horizontal_alignment = 1
+
+[node name="EnterCheck" type="Button" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -61.0
+offset_right = 43.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Enter"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072
+anchor_top = 0.194
+anchor_right = 0.928
+anchor_bottom = 0.756
+offset_left = -0.0880013
+offset_top = 0.0979996
+offset_right = 0.0879822
+offset_bottom = 0.0519867
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Cash" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Cash"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+context_menu_enabled = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "$"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Cash" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Credit"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+context_menu_enabled = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "$"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Cash" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Coins"
+alignment = 1
+max_length = 5
+expand_to_text_length = true
+context_menu_enabled = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "$"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Cash" type="LineEdit" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Togo"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+context_menu_enabled = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/GridContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "$"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.443137)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 42
+text = "Expenses"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BillLabel" parent="MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("4_hulxl")]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/vbox/BillsPanel/EnterBill" to="." method="_on_enter_bill_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/BaseMenu/AddCheck" to="." method="_on_add_check_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/vbox/IncomePanel/MarginContainer/CheckMenu/EnterCheck" to="." method="_on_enter_check_pressed"]
